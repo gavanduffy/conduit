@@ -139,12 +139,6 @@ final class ConduitCarPlaySceneDelegate: UIResponder,
       ),
     ])
 
-    template.backButton = CPBarButton(title: "Close") { [weak self] _ in
-      Task { @MainActor in
-        self?.interfaceController?.popToRootTemplate(animated: true, completion: nil)
-      }
-    }
-
     return template
   }
 
@@ -162,7 +156,6 @@ final class ConduitCarPlaySceneDelegate: UIResponder,
       image: UIImage(systemName: systemImageName),
       repeats: repeats
     )
-    state.actionButtons = Array(actionButtons.prefix(CPVoiceControlState.maximumActionButtonCount))
     return state
   }
 
